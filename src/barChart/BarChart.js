@@ -1,0 +1,50 @@
+import ReactECharts from 'echarts-for-react';
+
+function BarChart() {
+
+  const options = {
+    grid: { top: 20, right: 40, bottom: 20, left: 40 },
+    xAxis: {
+      type: "category",
+      data: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
+      // removes grid-lines in x-axis
+      splitLine:{show:false}
+    },
+    yAxis: {
+      type: "value",
+      data: [300, 400, 500, 600, 700],
+      // removes grid-lines in y-axis
+      splitLine:{show:false},
+    },
+    series: [
+      {
+        data: [400, 300, 350, 200, 280],
+        type: "bar",
+        smooth: true
+      }
+    ],
+    tooltip: {
+      // trigger object shows dashedLine vertically
+      // trigger: "axis"
+    }
+  }
+  return (
+    <div>
+      <div className='bg-white'>
+      <ReactECharts
+      style={{width:'700px',height:'400px'}}
+      option={options}
+      // notMerge={true}
+      // lazyUpdate={true}
+      // theme={"theme_name"}
+      // onChartReady={this.onChartReadyCallback}
+      // onEvents={EventsDict}
+      // opts={}
+       />
+      </div>
+      <div className='flex justify-center p-2 border-b'><h2>Chart Type : bar</h2></div>
+    </div>
+  );
+}
+
+export default BarChart;
