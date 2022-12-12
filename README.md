@@ -10,3 +10,9 @@ work status:
 
 
 <!-- npm install --save echarts-for-react -->
+
+
+
+
+visual look of this Repo:
+![image](https://user-images.githubusercontent.com/71959978/207030705-4a93cfe0-797a-4ea6-9850-2f0cdcdc3383.png)
