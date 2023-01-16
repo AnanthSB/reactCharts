@@ -2,11 +2,11 @@ Hit npm install before running the application to intall required depencies.
 
 >>consits of:
 
-1.echarts: tyoe Bar chart
+1.echarts: type: Bar chart
 
-2.echart tyoe Line chart
+2.echart type Line: chart
 
-3.ApexChart tyoe if Donut chart
+3.ApexChart type: Donut chart
 
 <!--npm i echarts-->
 <!--npm i --save echarts-for-react-->
