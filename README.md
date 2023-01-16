@@ -17,4 +17,5 @@ npm i --save echarts-for-react
 
 
 visual look of this Repo:
-![image](https://user-images.githubusercontent.com/71959978/207031633-cb83055e-95ad-409a-983a-b7af5a2aed01.png)
+![image](https://user-images.githubusercontent.com/71959978/212699127-613a4b6d-18e2-4f2c-bc9f-de3cd3b70cdd.png)
+
