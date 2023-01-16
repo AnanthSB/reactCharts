@@ -42,7 +42,7 @@ function LineChartGraph() {
       // opts={}
        />
       </div>
-      <div className='flex justify-center p-2 border-b'><h2>Chart Type : bar</h2></div>
+      <div className='flex justify-center p-2 border-b'><h2>Chart Type : line</h2></div>
     </div>
   );
 }

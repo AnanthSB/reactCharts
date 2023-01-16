@@ -1,0 +1,76 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "categoryType": "categoryOne",
+      "subCategoryType": "subCategory",
+      "AvailableBalance": 100.0
+    },
+    {
+      "id": 3,
+      "categoryType": "categoryFour",
+      "subCategoryType": "subCategory",
+      "AvailableBalance": 210.0
+    },
+    {
+      "id": 4,
+      "categoryType": "categoryThree",
+      "subCategoryType": "subCategory",
+      "AvailableBalance": 50.0
+    },
+    {
+      "id": 5,
+      "categoryType": "categoryThree",
+      "subCategoryType": "subCategory",
+      "AvailableBalance": 120.0
+    },
+    {
+      "id": 6,
+      "categoryType": "categoryFour",
+      "subCategoryType": "subCategory",
+      "AvailableBalance": 75.07
+    },
+    {
+      "id": 7,
+      "categoryType": "categoryFive",
+      "subCategoryType": "subCategory",
+      "AvailableBalance": 78.0
+    },
+    {
+      "id": 8,
+      "categoryType": "categoryThree",
+      "subCategoryType": "subCategory",
+      "AvailableBalance": 110.0
+    },
+    {
+      "id": 9,
+      "categoryType": "categoryFive",
+      "subCategoryType": "subCategory",
+      "AvailableBalance": 91.09
+    },
+    {
+      "id": 10,
+      "categoryType": "categoryTwo",
+      "subCategoryType": "subCategory",
+      "AvailableBalance": 145.34
+    },
+    {
+      "id": 11,
+      "categoryType": "categoryTwo",
+      "subCategoryType": "subCategory",
+      "AvailableBalance": 125.1
+    },
+    {
+      "id": 12,
+      "categoryType": "categoryTwo",
+      "subCategoryType": "subCategory",
+      "AvailableBalance": 175.34
+    },
+    {
+      "id": 13,
+      "categoryType": "categoryTwo",
+      "subCategoryType": "subCategory",
+      "AvailableBalance": 120.1
+    }
+  ]
+}

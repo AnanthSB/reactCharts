@@ -1,0 +1,9 @@
+.appContainer{
+    width: 100%;
+    // flex flex-wrap justify-center gap-[30px]    
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 30px;
+    justify-content: center;
+    align-items: ce;
+}
