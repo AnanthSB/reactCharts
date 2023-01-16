@@ -1,10 +1,15 @@
-install the below dependies before running this application,
+Hit npm install before running the application to intall required depencies.
 
+>>consits of:
 
-npm i echarts
+1.echarts: tyoe Bar chart
 
+2.echart tyoe Line chart
 
-npm i --save echarts-for-react
+3.ApexChart tyoe if Donut chart
+
+<!--npm i echarts-->
+<!--npm i --save echarts-for-react-->
 
 
 <!-- Types of Line echartReactJS -->
@@ -22,5 +27,7 @@ visual look of this Repo:
 
 It is a react js App containing different types of graph, which can be used as re-usable component.
 Buitl by using 
+
 rechart, apex chart ,
+
 tailwindcss and SASS.
