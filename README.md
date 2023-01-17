@@ -25,8 +25,8 @@ visual look of this Repo:
 ![image](https://user-images.githubusercontent.com/71959978/212699127-613a4b6d-18e2-4f2c-bc9f-de3cd3b70cdd.png)
 
 
-It is a react js App containing different types of graph, which can be used as re-usable component.
-Built by using 
+It is a react js App containing different types of graph i worked on,
+which can be used as re-usable component. Built by using 
 
 rechart, apex chart ,
 
