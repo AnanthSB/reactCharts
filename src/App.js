@@ -72,7 +72,7 @@ function App() {
   });
 
   return (
-    <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',justifyItems:'center'}} className={`${styles.appContainer} bg-slate-300 gap-[2rem] pt-[8px]`}>
+    <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',justifyItems:'center'}} className={`${styles.appContainer} gap-[2rem] pt-[8px]`}>
         <BarChart />
         <LineChartGraph />
         <DonutChart 
