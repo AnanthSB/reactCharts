@@ -28,6 +28,6 @@ visual look of this Repo:
 It is a react js App containing different types of graph i worked on,
 which can be used as re-usable component. Built by using 
 
-rechart, apex chart ,
+react js rechart, apex chart ,
 
 tailwindcss and SASS.
