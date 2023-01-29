@@ -1,5 +1,5 @@
 import styles from './App.scss';
-import BarChart from './barChart/BarChart';
+import BarChart, { ApexBarChart } from './barChart/BarChart';
 import LineChartGraph from './LineChartGraph/LineChartGraph';
 import DonutChart from './DonutChart/DonutChart';
 import donutData from './DonutChart/donutData.json';
@@ -73,7 +73,14 @@ function App() {
 
   return (
     <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',justifyItems:'center'}} className={`${styles.appContainer} gap-[2rem] pt-[8px]`}>
-        <BarChart />
+        <div className='flex flex-col items-center justify-center w-full'>
+          <BarChart />
+          <p className='flex justify-center p-2 border-b'>Chart Type : ReactECharts</p>
+        </div>
+        <div className='flex flex-col items-center justify-center w-full'>
+          <ApexBarChart />
+          <p>Chart Type : ApexBar</p>
+        </div>
         <LineChartGraph />
         <DonutChart 
               label={'Total'}
