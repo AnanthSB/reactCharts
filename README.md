@@ -30,4 +30,4 @@ which can be used as re-usable component. Built by using
 
 react js rechart, apex chart ,
 
-tailwindcss and SASS.
+tailwindcss, SASS, Java Script and CSS.
