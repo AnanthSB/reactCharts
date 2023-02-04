@@ -2,8 +2,11 @@ import ReactECharts from 'echarts-for-react';
 import { useState } from 'react';
 import styles from './barChart.module.scss';
 import Chart from 'react-apexcharts';
+import PropTypes from 'prop-types';
+import { BarChart, Bar, Cell, XAxis, YAxis, Tooltip } from 'recharts';
+import toCurrencyAmount from '../Helpers/toCurrencyAmount';
 
-function BarChart() {
+export default function BarChart1(){
 
   const options = {
     grid: { top: 20, right: 40, bottom: 20, left: 40 },
@@ -49,7 +52,206 @@ function BarChart() {
   );
 }
 
-export default BarChart;
+// export default BarChart;
+
+const colors = [
+  '#FFAE74',
+  '#6AB9D5',
+  '#C87EFF',
+  '#EEFF03',
+  '#FFBF7E',
+  '#DF7086',
+  '#FFAE74',
+  '#6AB9D5',
+  '#FFAE74',
+  '#6AB9D5'
+];
+
+const apiData = [
+  {
+    name: 'Category1',
+    uv: 7200,
+    amt: 7200,
+    totalOrders: 100
+  },
+  {
+    name: 'Category2',
+    uv: 4100,
+    amt: 4100,
+    totalOrders: 43
+  },
+  {
+    name: 'Category3',
+    uv: 6200,
+    amt: 6200,
+    totalOrders: 24
+  },
+  {
+    name: 'Category4',
+    uv: 5200,
+    amt: 5200,
+    totalOrders: 53
+  },
+  {
+    name: 'Category5',
+    uv: 8000,
+    amt: 8000,
+    totalOrders: 79
+  },
+  {
+    name: 'Category6',
+    uv: 5000,
+    amt: 5000,
+    totalOrders: 231111
+  },
+  {
+    name: 'Category7',
+    uv: 2100,
+    amt: 2100,
+    totalOrders: 23
+  },
+  {
+    name: 'Category8',
+    uv: 4500,
+    amt: 4500,
+    totalOrders: 11
+  },
+];
+const data = apiData.map((item, index) => {
+  return {
+    ...item,
+    color: `${colors[index]}`
+  };
+});
+const CustomizedLabel = (props) => {
+  const { x, y, fill, value } = props;
+  let res;
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].amt === value) {
+      res = data[i].totalOrders;
+    }
+  }
+  return (
+    <text
+      x={x}
+      y={y}
+      dy={value / 47}
+      dx={`${res}`.length <= 1 ? 10 : `${res}`.length <= 2 ? 15 : `${res}`.length <= 3 ? 15 : `${res}`.length > 3 ? 7 : 0}
+      fontSize="14"
+      // fontFamily="sans-serif"
+      fill="#000"
+      textAnchor="right"
+    >
+      {res}
+    </text>
+  );
+};
+export function BarGraphComponent({ barChartData }) {
+  const CustomTooltip = (data) => {
+    const { active, payload, label } = data;
+    if (active && payload && payload.length) {
+      return (
+        <div
+          style={{ backgroundColor: `${payload[0].payload.color}` }}
+          className={`relative outline-none rounded-[10px] min-w-[76px] min-h-[70px] flex flex-col items-center justify-between pb-[8px] gap-[1px] ${styles.customTooltip}`}
+        >
+          <span
+            className={`border-b w-full justify-center items-center flex flex-col text-[12px] leading-[18px] text-ibgy1 tracking-[0.19px]`}
+          >
+            {`${payload[0].payload.name}`}
+            {/* <span className="bg-ibwhite h-[1px] w-[74%]" /> */}
+          </span>
+          <span
+            className={`text-[12px] leading-[18px] text-ibgy1 tracking-[0.19px]`}
+          >{`$${toCurrencyAmount(payload[0].value)}`}</span>
+          <span
+            className={`text-[12px] leading-[18px] text-ibgy1 tracking-[0.19px]`}
+          >
+            {payload[0]?.payload?.totalOrders} Orders
+          </span>
+          <span
+            style={{ backgroundColor: `${payload[0].payload.color}` }}
+            className={`absolute bottom-[-6px] rotate-[45deg] w-[13px] h-[13px] rounded-[2px]`}
+          />
+        </div>
+      );
+    }
+    return null;
+  };
+  let [posData, setposData] = useState({});
+
+  const formatYAxis = (tickitem) => {
+    // tickitem comes as amount/value of that axis
+    return `$${toCurrencyAmount(tickitem)}`;
+  };
+
+  return (
+    <BarChart
+      // className={`${data.length >= 7 ? 'scale-x-[0.8]' : ''} ${
+      //   styles.rechartsWrapper
+      // }`}
+      // width={460}
+      // width={data.length >= 7 ? 600 : 460}
+      className={`mt-14 ${styles.rechartsWrapper}`}
+      width={900}
+      height={350}
+      data={data}
+      // barCategoryGap={data.length >= 7 ? '20%' : '25%'}
+      margin={{
+        top: 0,
+        right: 0,
+        left: 17,
+        bottom: 0
+      }}
+    >
+      <XAxis
+        dataKey="name"
+        tickLine={!true}
+        tick={{ show: false, fontSize: 14 }}
+      />
+      <YAxis
+        // domain={[0, 5000]}
+        // hide
+        tickLine={!true}
+        tick={{ show: false, fontSize: 14 }}
+        tickFormatter={formatYAxis}
+      />
+      <Tooltip
+        content={<CustomTooltip data={data} />}
+        cursor={false}
+        position={{ x: posData.x - 12, y: posData.y - 80 }}
+        wrapperStyle={{ outline: 'none' }}
+      />
+      <Bar
+        dataKey="uv"
+        barSize={50}
+        // fill="#8884d8"
+        // background
+        label={<CustomizedLabel />}
+        onMouseOver={(data) => {
+          setposData(data);
+        }}
+        // position="right"
+      >
+        {data.map((entry, index) => (
+          <Cell
+            key={`cell-${index}`}
+            fill={colors[index % 20]}
+            position="right"
+          />
+        ))}
+      </Bar>
+    </BarChart>
+  );
+}
+
+BarGraphComponent.propTypes = {
+  barChartData: PropTypes.shape({
+    length: PropTypes.any
+  })
+};
+
+
 
 export function ApexBarChart() {
   const [apexChartData, setApexChartData] = useState([
@@ -388,3 +590,4 @@ export function ApexBarChart() {
     </>
   );
 }
+

@@ -1,8 +1,9 @@
 import styles from './App.scss';
-import BarChart, { ApexBarChart } from './barChart/BarChart';
+import { ApexBarChart, BarGraphComponent } from './barChart/BarChart';
 import LineChartGraph from './LineChartGraph/LineChartGraph';
 import DonutChart from './DonutChart/DonutChart';
 import donutData from './DonutChart/donutData.json';
+import BarChart1 from './barChart/BarChart';
 
 function App() {
   const categoryOne = donutData.data.filter((item) => {
@@ -70,11 +71,43 @@ function App() {
     });
     return list;
   });
+  // 
 
+let people = [  { name: 'John', city: 'London', country: 'UK' },
+  { name: 'Jane', city: 'New York', country: 'USA' },
+  { name: 'Ananth', city: 'Paris', country: 'USA' },
+    { name: 'Jim', city: 'Paris', country: 'France' },
+    { name: 'Shetty', city: 'India', country: 'USA' },
+    { name: 'Jack', city: 'Berlin', country: 'Germany' },
+    { name: 'Chennai', city: 'China', country: 'Germany' },
+        { name: 'Jill', city: 'Tokyo', country: 'Japan' }];
+
+let list =[];
+for(let i=0; i<people.length-1; i++){
+  // list.push(people.filter((item,index) => item.country === people[index+1].country));
+  if(people[i].country === people[i+1].country){
+    list.push(people.filter((item) => item.country === people[i+1].country));
+  }
+}
+// let newList = [];
+// for(let i=0; i<people.length-1; i++){
+//   for(let j=0; j<list[i].length; j++){
+//     if(!people[i].country === list[i].country){
+//       newList.push(people[i]);
+//     }
+//   }
+// }
+
+// window.alert(JSON.stringify(list));
+// Output: [{ name: 'Jim', city: 'Paris', country: 'France' }]
   return (
     <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',justifyItems:'center'}} className={`${styles.appContainer} gap-[2rem] pt-[8px]`}>
         <div className='flex flex-col items-center justify-center w-full'>
-          <BarChart />
+          <BarGraphComponent />
+          <p className='flex justify-center p-2 border-b'>Chart Type : ReactECharts CustomizedToolTip</p>
+        </div>
+        <div className='flex flex-col items-center justify-center w-full'>
+          <BarChart1 />
           <p className='flex justify-center p-2 border-b'>Chart Type : ReactECharts</p>
         </div>
         <div className='flex flex-col items-center justify-center w-full'>
