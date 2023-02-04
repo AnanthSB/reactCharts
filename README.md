@@ -2,7 +2,7 @@ Hit npm install before running the application to intall required depencies.
 
 >>consits of:
 
-1.echarts: type: Bar chart
+1.echarts: type: Bar chart, with customized ToolTip
 
 2.echart type Line: chart
 
