@@ -2,75 +2,81 @@
   "data": [
     {
       "id": 1,
-      "categoryType": "categoryOne",
-      "subCategoryType": "subCategory",
+      "categoryType": "January",
+      "subCategoryType": "Profit",
       "AvailableBalance": 100.0
     },
     {
       "id": 3,
-      "categoryType": "categoryFour",
-      "subCategoryType": "subCategory",
+      "categoryType": "February",
+      "subCategoryType": "Loans",
       "AvailableBalance": 210.0
     },
     {
+      "id": 12,
+      "categoryType": "November",
+      "subCategoryType": "Profit",
+      "AvailableBalance": 200.01
+    },
+    {
       "id": 4,
-      "categoryType": "categoryThree",
-      "subCategoryType": "subCategory",
+      "categoryType": "March",
+      "subCategoryType": "Profit",
       "AvailableBalance": 50.0
     },
     {
       "id": 5,
-      "categoryType": "categoryThree",
-      "subCategoryType": "subCategory",
+      "categoryType": "April",
+      "subCategoryType": "Profit",
       "AvailableBalance": 120.0
     },
     {
       "id": 6,
-      "categoryType": "categoryFour",
-      "subCategoryType": "subCategory",
+      "categoryType": "May",
+      "subCategoryType": "Profit",
       "AvailableBalance": 75.07
     },
     {
       "id": 7,
-      "categoryType": "categoryFive",
-      "subCategoryType": "subCategory",
+      "categoryType": "Jun",
+      "subCategoryType": "Profit",
       "AvailableBalance": 78.0
     },
     {
+      "id": 12,
+      "categoryType": "November",
+      "subCategoryType": "Profit",
+      "AvailableBalance": 100.34
+    },
+    {
       "id": 8,
-      "categoryType": "categoryThree",
-      "subCategoryType": "subCategory",
+      "categoryType": "July",
+      "subCategoryType": "Profit",
       "AvailableBalance": 110.0
     },
     {
-      "id": 9,
-      "categoryType": "categoryFive",
-      "subCategoryType": "subCategory",
-      "AvailableBalance": 91.09
-    },
-    {
-      "id": 10,
-      "categoryType": "categoryTwo",
-      "subCategoryType": "subCategory",
-      "AvailableBalance": 145.34
-    },
-    {
-      "id": 11,
-      "categoryType": "categoryTwo",
-      "subCategoryType": "subCategory",
-      "AvailableBalance": 125.1
-    },
-    {
       "id": 12,
-      "categoryType": "categoryTwo",
-      "subCategoryType": "subCategory",
+      "categoryType": "November",
+      "subCategoryType": "Profit",
       "AvailableBalance": 175.34
     },
     {
       "id": 13,
-      "categoryType": "categoryTwo",
-      "subCategoryType": "subCategory",
+      "categoryType": "December",
+      "subCategoryType": "loss",
       "AvailableBalance": 120.1
+    },
+    {
+      "id": 1,
+      "categoryType": "January",
+      "subCategoryType": "Profit",
+      "AvailableBalance": 100.0
+    },
+    {
+      "id": 6,
+      "categoryType": "May",
+      "subCategoryType": "loss",
+      "AvailableBalance": 50.17
     }
   ]
 }

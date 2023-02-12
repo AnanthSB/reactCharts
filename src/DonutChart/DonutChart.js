@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Chart from 'react-apexcharts';
 import './DonutChart.css';
 
 // Will move DonutChart component to MoleculesFolder once it is finalized, for re-usability
 export default function DonutChart({
+  categorizedArray,
   label,
   BottomLabel,
   donutData,
@@ -13,6 +14,8 @@ export default function DonutChart({
   walletsByTotal,
   showNegative
 }) {
+  const [chartSeriesData, setChartSeriesData] = useState([]);
+  // const [networthAmount, setNetworthAmount] = useState(0);
     const capitalizeFirstLetter = (str="")=>{
       let letters = str?.toLocaleLowerCase();
       let updatedStr = "";
@@ -35,7 +38,14 @@ export default function DonutChart({
       ? item[0]?.categoryType
       : 'categoryOne';
   });
-  const networthAmount = walletsByTotal.reduce((a, b) => a + b);
+  // const networthAmount = walletsByTotal?.reduce((a, b) => a + b);
+  const networthAmount = ()=>{
+    let sum =0;
+    for(let i=0; i<walletsByTotal.length; i++){
+      sum += walletsByTotal[i];
+    }
+    return sum
+  }
   const options = {
     // legend false for hiding the default labelsContainer section
     legend: {
@@ -62,7 +72,7 @@ export default function DonutChart({
               fontWeight: 'normal',
               color: 'black',
               formatter: function (w) {
-                return `$${getValue(networthAmount - walletsByTotal[2])}`;
+                return `$${getValue(networthAmount())}`;
               }
             }
           }
@@ -132,7 +142,20 @@ export default function DonutChart({
       }
     }
   };
-
+  useEffect(()=>{
+    const chartSeries = categorizedArray?.map((item) => {
+      let list = item.map((item,index) => {
+        return {
+          label: `${index+1}. ${item?.subCategoryType}`,
+          value: item?.AvailableBalance
+        };
+      });
+      return list;
+    });
+    setChartSeriesData(chartSeries);
+    // alert(JSON.stringify(chartSeries))
+    // setNetworthAmount(walletsByTotal?.reduce((a, b) => a + b))
+  },[])
   return (
     <div className="flex flex-col items-center justify-start pt-[3rem] pb-[6px] px-[25%] bg-white mb-[10px]">
       <div className="text-center mb-[20px]">

@@ -52,101 +52,7 @@ export default function BarChart1(){
   );
 }
 
-// export default BarChart;
-
-const colors = [
-  '#FFAE74',
-  '#6AB9D5',
-  '#C87EFF',
-  '#EEFF03',
-  '#FFBF7E',
-  '#DF7086',
-  '#FFAE74',
-  '#6AB9D5',
-  '#FFAE74',
-  '#6AB9D5'
-];
-
-const apiData = [
-  {
-    name: 'Category1',
-    uv: 7200,
-    amt: 7200,
-    totalOrders: 100
-  },
-  {
-    name: 'Category2',
-    uv: 4100,
-    amt: 4100,
-    totalOrders: 43
-  },
-  {
-    name: 'Category3',
-    uv: 6200,
-    amt: 6200,
-    totalOrders: 24
-  },
-  {
-    name: 'Category4',
-    uv: 5200,
-    amt: 5200,
-    totalOrders: 53
-  },
-  {
-    name: 'Category5',
-    uv: 8000,
-    amt: 8000,
-    totalOrders: 79
-  },
-  {
-    name: 'Category6',
-    uv: 5000,
-    amt: 5000,
-    totalOrders: 231111
-  },
-  {
-    name: 'Category7',
-    uv: 2100,
-    amt: 2100,
-    totalOrders: 23
-  },
-  {
-    name: 'Category8',
-    uv: 4500,
-    amt: 4500,
-    totalOrders: 11
-  },
-];
-const data = apiData.map((item, index) => {
-  return {
-    ...item,
-    color: `${colors[index]}`
-  };
-});
-const CustomizedLabel = (props) => {
-  const { x, y, fill, value } = props;
-  let res;
-  for (let i = 0; i < data.length; i++) {
-    if (data[i].amt === value) {
-      res = data[i].totalOrders;
-    }
-  }
-  return (
-    <text
-      x={x}
-      y={y}
-      dy={value / 47}
-      dx={`${res}`.length <= 1 ? 10 : `${res}`.length <= 2 ? 15 : `${res}`.length <= 3 ? 15 : `${res}`.length > 3 ? 7 : 0}
-      fontSize="14"
-      // fontFamily="sans-serif"
-      fill="#000"
-      textAnchor="right"
-    >
-      {res}
-    </text>
-  );
-};
-export function BarGraphComponent({ barChartData }) {
+export function BarGraphComponent({ barGraphData }) {
   const CustomTooltip = (data) => {
     const { active, payload, label } = data;
     if (active && payload && payload.length) {
@@ -178,6 +84,49 @@ export function BarGraphComponent({ barChartData }) {
     }
     return null;
   };
+  
+  const CustomizedLabel = (props) => {
+    const { x, y, fill, value, width, height } = props;
+    let res;
+    for (let i = 0; i < barGraphData.length; i++) {
+      if (barGraphData[i].amt === value) {
+        res = barGraphData[i].totalOrders;
+      }
+    }
+    const dxLength = (res)=>{
+      let size= 0;
+      switch(`${res}`.length){
+        case 1:
+         size = 25;
+         break
+        case 2:
+          size = 20;
+          break
+        case 3:
+          size = 23;
+          break
+        default:
+          size=10
+      }
+      return size;
+    }
+    return (
+      <text
+        x={x}
+        y={y}
+        // dy={-6}
+        dy={Math.round(height/2)}
+        dx={dxLength(res)}
+        // dx={`${res}`.length <= 1 ? 10 : `${res}`.length <= 2 ? 15 : `${res}`.length <= 3 ? 25 : 0}
+        fontSize="14"
+        // fontFamily="sans-serif"
+        fill="#000"
+        textAnchor="middle"
+      >
+        {res}
+      </text>
+    );
+  };
   let [posData, setposData] = useState({});
 
   const formatYAxis = (tickitem) => {
@@ -195,7 +144,7 @@ export function BarGraphComponent({ barChartData }) {
       className={`mt-14 ${styles.rechartsWrapper}`}
       width={900}
       height={350}
-      data={data}
+      data={barGraphData}
       // barCategoryGap={data.length >= 7 ? '20%' : '25%'}
       margin={{
         top: 0,
@@ -217,7 +166,7 @@ export function BarGraphComponent({ barChartData }) {
         tickFormatter={formatYAxis}
       />
       <Tooltip
-        content={<CustomTooltip data={data} />}
+        content={<CustomTooltip data={barGraphData} />}
         cursor={false}
         position={{ x: posData.x - 12, y: posData.y - 80 }}
         wrapperStyle={{ outline: 'none' }}
@@ -233,10 +182,10 @@ export function BarGraphComponent({ barChartData }) {
         }}
         // position="right"
       >
-        {data.map((entry, index) => (
+        {barGraphData.map((entry, index) => (
           <Cell
             key={`cell-${index}`}
-            fill={colors[index % 20]}
+            fill={barGraphData[index].color}
             position="right"
           />
         ))}
