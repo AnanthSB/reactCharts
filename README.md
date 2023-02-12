@@ -21,8 +21,21 @@ Hit npm install before running the application to intall required depencies.
 
 
 
-visual look of this Repo:
-![image](https://user-images.githubusercontent.com/71959978/216750873-ff2ee8a6-b6d1-47a6-a3a7-8470d8c2c56a.png)
+DonutChart:
+![image](https://user-images.githubusercontent.com/71959978/218329716-37ff9add-cf55-4446-a952-0795bd859a19.png)
+
+
+BarchChart with custom toolTip:
+![image](https://user-images.githubusercontent.com/71959978/218329745-6723418f-d456-4927-bd59-a57f20b7c4ef.png)
+
+
+Simple Bar Chart:
+![image](https://user-images.githubusercontent.com/71959978/218329786-3274960e-523a-4d75-955b-05db721d0496.png)
+
+
+Line Chart:
+![image](https://user-images.githubusercontent.com/71959978/218329799-76a7503d-fdb8-40d4-8f7a-ede37e4230c9.png)
+
 
 
 It is a react js App containing different types of graph i worked on,
