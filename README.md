@@ -28,7 +28,7 @@ DonutChart:
 
 BarchChart with custom toolTip:
 
-![image](https://user-images.githubusercontent.com/71959978/218329745-6723418f-d456-4927-bd59-a57f20b7c4ef.png)
+![image](https://user-images.githubusercontent.com/71959978/218329909-b58028cf-1dda-4b34-ae1a-362dc6f91bc6.png)
 
 
 Simple Bar Chart:
