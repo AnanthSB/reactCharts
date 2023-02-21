@@ -7,7 +7,7 @@ import './DonutChart.css';
 export default function DonutChart({
   categorizedArray,
   label,
-  BottomLabel,
+  titleLabel,
   donutData,
   colors,
   chartSeries,
@@ -158,11 +158,6 @@ export default function DonutChart({
   },[])
   return (
     <div className="flex flex-col items-center justify-start pt-[3rem] pb-[6px] px-[25%] bg-white mb-[10px]">
-      <div className="text-center mb-[20px]">
-        <span className="text-[20px] leading-[30px] tracking-[0.32px]">
-          {BottomLabel}
-        </span>
-      </div>
       <div className="flex flex-col mixed-chart">
         <Chart
           options={options}
@@ -204,7 +199,7 @@ export default function DonutChart({
         })}
       </div>
       <div className='mt-[30px] border-t w-full text-center py-[5px]'>
-      <div className='flex justify-center p-2 border-b'><h2>Chart Type : Donut</h2></div>
+      <div className='flex justify-center p-2 border-b'><h2>Chart Type : {titleLabel}</h2></div>
       </div>
     </div>
   );
@@ -226,6 +221,6 @@ DonutChart.propTypes = {
   donutwalletsByTotal: PropTypes.func,
   label: PropTypes.string,
   showNegative: PropTypes.bool,
-  BottomLabel: PropTypes.string,
+  titleLabel: PropTypes.string,
   walletsByTotal: PropTypes.array
 }

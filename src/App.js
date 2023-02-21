@@ -3,26 +3,16 @@ import { ApexBarChart, BarGraphComponent } from './barChart/BarChart';
 import LineChartGraph from './LineChartGraph/LineChartGraph';
 import DonutChart from './DonutChart/DonutChart';
 import donutData from './DonutChart/donutData.json';
+import payoutsData from "./PayoutBarChart/data.json";
 import BarChart1 from './barChart/BarChart';
 import { useEffect, useState } from 'react';
+import moment from 'moment';
+import {PayoutBarChart} from './PayoutBarChart/PayoutBarChart';
 
 function App() {
   const [categoryWiseSum, setCategoryWiseSum] = useState([]);
   const [categorizedArray, setCategorizedArray] = useState([]);
-
-
-let people = [  
-  { name: 'John', city: 'London', country: 'UK' },
-  { name: 'Jane', city: 'New York', country: 'USA' },
-  { name: 'Ananth', city: 'Paris', country: 'USA' },
-  { name: 'Jim', city: 'Paris', country: 'France' },
-  { name: 'Shetty', city: 'India', country: 'USA' },
-  { name: 'Jack', city: 'Berlin', country: 'Germany' },
-  { name: 'Chennai', city: 'China', country: 'Germany' },
-  { name: 'Jill', city: 'Tokyo', country: 'Japan' }
-];
-
-const letters = new Set(["a","b","c"]);
+  const [payoutGraphData, setPayoutGraphData] = useState([]);
 
 const [barGraphData, setBarGraphData] = useState([]);
 const colors = [
@@ -95,7 +85,6 @@ useEffect(()=>{
       color: `${colors[index]}`
     }
   }))
-
   
   // For DonutChart circle wala
   let arr1 = donutData.data.map((item)=>item.categoryType);
@@ -113,7 +102,6 @@ useEffect(()=>{
   let arr = uniqueArr1.map((item,index)=>{
     return categoryByTotal(index);
   })
-  
   const categorizeArray = uniqueArr1.map((item)=>{
     let arr = [];
     for(let i=0; i<donutData?.data.length; i++){
@@ -123,16 +111,28 @@ useEffect(()=>{
     }
     return arr;
   })
-  
   setCategorizedArray(categorizeArray)
   setCategoryWiseSum(arr)
+  },[])
 
-},[])
+  // payoutsData
+  useEffect(()=>{
+    const array = payoutsData?.data?.slice(1); //slice method used for getting items of an array from index to To index. Here we are filtering last 7days payouts.
+    setPayoutGraphData(
+      array?.map((item) => {
+        return {
+          // category: `Day${index + 1}`
+          category: moment(item?.createdAt?.split(" ")[0]).format('D MMM YYYY'),
+          totalAmount: +item?.totalAmount
+        };
+      })
+    );
+  },[])
   return (
     <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',justifyItems:'center'}} className={`${styles.appContainer} gap-[2rem] pt-[8px]`}>
               <DonutChart
               label={'Total'} //That goes center of the DonutChart
-              titleLabel={'Apex DonutChart'}
+              titleLabel={'Donut ApexChart'}
               donutData={categorizedArray}
               walletsByTotal={categoryWiseSum}
               chartSeries={categorizedArray.map((item)=>{
@@ -156,17 +156,33 @@ useEffect(()=>{
         />
         <div className='flex flex-col items-center justify-center w-full'>
           <BarGraphComponent barGraphData={barGraphData} />
-          <p className='flex justify-center p-2 border-b'>Chart Type : ReactECharts CustomizedToolTip</p>
+          <p className='flex justify-center p-2 border-b'>Chart Type : Bar Rechart</p>
         </div>
+        
+        <div>
+          <PayoutBarChart graphData={payoutGraphData} />
+          <p className='flex justify-center p-2 border-b mt-[50px]'>Chart Type : Bar Rechart</p>
+        </div>
+
+        {/* <div>
+          <AreaChart graphData={payoutGraphData} />
+          <p className='flex justify-center p-2 border-b mt-[50px]'>Chart Type : Bar Rechart</p>
+        </div> */}
+
         <div className='flex flex-col items-center justify-center w-full'>
           <BarChart1 />
-          <p className='flex justify-center p-2 border-b'>Chart Type : ReactECharts</p>
+          <p className='flex justify-center p-2 border-b'>Chart Type : Bar Rechart</p>
         </div>
+        
         <div className='flex flex-col items-center justify-center w-full'>
           <ApexBarChart />
-          <p>Chart Type : ApexBar</p>
+          <p>Chart Type : Bar ApexChart</p>
         </div>
-        <LineChartGraph />
+        
+        <div >
+          <LineChartGraph />
+          <div className='flex justify-center p-2 border-b'><h2>Chart Type : line</h2></div>
+        </div>
     </div>
   );
 }

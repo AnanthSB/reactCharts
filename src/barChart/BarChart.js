@@ -117,7 +117,6 @@ export function BarGraphComponent({ barGraphData }) {
         // dy={-6}
         dy={Math.round(height/2)}
         dx={dxLength(res)}
-        // dx={`${res}`.length <= 1 ? 10 : `${res}`.length <= 2 ? 15 : `${res}`.length <= 3 ? 25 : 0}
         fontSize="14"
         // fontFamily="sans-serif"
         fill="#000"
@@ -136,11 +135,6 @@ export function BarGraphComponent({ barGraphData }) {
 
   return (
     <BarChart
-      // className={`${data.length >= 7 ? 'scale-x-[0.8]' : ''} ${
-      //   styles.rechartsWrapper
-      // }`}
-      // width={460}
-      // width={data.length >= 7 ? 600 : 460}
       className={`mt-14 ${styles.rechartsWrapper}`}
       width={900}
       height={350}

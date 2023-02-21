@@ -1,0 +1,68 @@
+{"data":[
+    {
+        "batchId": "BP101230230800",
+        "status": "Open",
+        "createdAt": "2023-01-23 08:00:00.0",
+        "totalTransactionsCount": "1",
+        "totalFee": "1.11",
+        "totalAmount": "9.78",
+        "sentTo": "Business Token Account",
+        "updatedAt": null,
+        "scheduledRelease": null,
+        "reserveAmount": "0.11",
+        "processType": null
+      },
+      {
+        "batchId": "BP101230220800",
+        "status": "Paid",
+        "createdAt": "2023-01-22 08:00:00.0",
+        "totalTransactionsCount": "0",
+        "totalFee": "1.11",
+        "totalAmount": "0.00",
+        "sentTo": "Business Token Account",
+        "updatedAt": "2023-01-23 08:00:00.0",
+        "scheduledRelease": null,
+        "reserveAmount": "0.00",
+        "processType": "A"
+      },
+      {
+        "batchId": "BP101230210800",
+        "status": "Paid",
+        "createdAt": "2023-01-21 08:00:00.0",
+        "totalTransactionsCount": "0",
+        "totalFee": "2.22",
+        "totalAmount": "0.00",
+        "sentTo": "Business Token Account",
+        "updatedAt": "2023-01-22 08:00:00.0",
+        "scheduledRelease": null,
+        "reserveAmount": "0.00",
+        "processType": "A"
+      },
+      {
+        "batchId": "BP101230200800",
+        "status": "Paid",
+        "createdAt": "2023-01-20 08:00:00.0",
+        "totalTransactionsCount": "0",
+        "totalFee": "0.00",
+        "totalAmount": "0.00",
+        "sentTo": "Business Token Account",
+        "updatedAt": "2023-01-21 08:00:00.0",
+        "scheduledRelease": null,
+        "reserveAmount": "0.00",
+        "processType": "A"
+      },
+      {
+        "batchId": "BP101230200615",
+        "status": "Paid",
+        "createdAt": "2023-01-20 06:15:26.448",
+        "totalTransactionsCount": "3",
+        "totalFee": "0.00",
+        "totalAmount": "30.69",
+        "sentTo": "Business Token Account",
+        "updatedAt": "2023-01-20 08:00:00.0",
+        "scheduledRelease": null,
+        "reserveAmount": "0.31",
+        "processType": "A"
+      }
+
+]}

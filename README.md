@@ -2,7 +2,7 @@ Hit npm install before running the application to intall required depencies.
 
 >>consits of:
 
-1.echarts: type: Bar chart, with customized ToolTip
+1.echarts: type: Bar chart
 
 2.echart type Line: chart
 
@@ -21,25 +21,8 @@ Hit npm install before running the application to intall required depencies.
 
 
 
-DonutChart:
-
-![image](https://user-images.githubusercontent.com/71959978/218329716-37ff9add-cf55-4446-a952-0795bd859a19.png)
-
-
-BarchChart with custom toolTip:
-
-![image](https://user-images.githubusercontent.com/71959978/218329909-b58028cf-1dda-4b34-ae1a-362dc6f91bc6.png)
-
-
-Simple Bar Chart:
-
-![image](https://user-images.githubusercontent.com/71959978/218329786-3274960e-523a-4d75-955b-05db721d0496.png)
-
-
-Line Chart:
-
-![image](https://user-images.githubusercontent.com/71959978/218329799-76a7503d-fdb8-40d4-8f7a-ede37e4230c9.png)
-
+visual look of this Repo:
+![image](https://user-images.githubusercontent.com/71959978/215322151-dbf70d98-8aeb-4868-bd9b-fe9779fbc66d.png)
 
 
 It is a react js App containing different types of graph i worked on,
