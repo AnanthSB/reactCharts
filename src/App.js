@@ -1,13 +1,15 @@
 import styles from './App.scss';
 import { ApexBarChart, BarGraphComponent } from './barChart/BarChart';
-import LineChartGraph from './LineChartGraph/LineChartGraph';
-import DonutChart from './DonutChart/DonutChart';
-import donutData from './DonutChart/donutData.json';
-import payoutsData from "./PayoutBarChart/data.json";
+import LineChartGraph from './Graphs/LineChartGraph/LineChartGraph';
+import DonutChart from './Graphs/DonutChart/DonutChart';
+import donutData from './Graphs/DonutChart/donutData.json';
+import payoutsData from "./Graphs/PayoutBarChart/data.json";
+// import areaChartData from "./Graphs/AreaChart/data.json"
 import BarChart1 from './barChart/BarChart';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
-import {PayoutBarChart} from './PayoutBarChart/PayoutBarChart';
+import { PayoutBarChart } from './Graphs/PayoutBarChart/PayoutBarChart';
+// import AreaChart from './Graphs/AreaChart/AreaChart';
 
 function App() {
   const [categoryWiseSum, setCategoryWiseSum] = useState([]);
@@ -164,10 +166,13 @@ useEffect(()=>{
           <p className='flex justify-center p-2 border-b mt-[50px]'>Chart Type : Bar Rechart</p>
         </div>
 
-        {/* <div>
-          <AreaChart graphData={payoutGraphData} />
+        {/* AreaChart */}
+        <div>
+          {/* <AreaChart
+            areaChartData={areaChartData}
+          /> */}
           <p className='flex justify-center p-2 border-b mt-[50px]'>Chart Type : Bar Rechart</p>
-        </div> */}
+        </div>
 
         <div className='flex flex-col items-center justify-center w-full'>
           <BarChart1 />

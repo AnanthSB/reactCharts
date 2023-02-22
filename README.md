@@ -22,8 +22,7 @@ Hit npm install before running the application to intall required depencies.
 
 
 visual look of this Repo:
-![image](https://user-images.githubusercontent.com/71959978/220228928-8a41660f-cde3-42e7-8e90-21703c9a5a81.png)
-
+![image](https://user-images.githubusercontent.com/71959978/215322151-dbf70d98-8aeb-4868-bd9b-fe9779fbc66d.png)
 
 
 It is a react js App containing different types of graph i worked on,
