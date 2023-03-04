@@ -1,0 +1,18 @@
+.appContainer{
+    width: 100%;
+    @media (min-width:1024px) {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    @media (min-width:1025px) {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+
+    }
+}

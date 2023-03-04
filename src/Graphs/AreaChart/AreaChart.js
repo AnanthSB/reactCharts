@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import {
   Area,
+  CartesianGrid,
   ComposedChart,
   ResponsiveContainer,
   Tooltip,
@@ -17,7 +18,7 @@ import {
 import styles from './areaChart.module.scss';
 // import { Checkbox } from 'Components/Atoms';
 
-export default function AreaChart({
+export default function AreaChart1({
   areaChartData,
   tokenBusinessAccountActivityFilter
 }) {
@@ -144,7 +145,7 @@ export default function AreaChart({
   );
 }
 
-AreaChart.propTypes = {
+AreaChart1.propTypes = {
   areaChartData: PropTypes.shape({
     length: PropTypes.number
   }),

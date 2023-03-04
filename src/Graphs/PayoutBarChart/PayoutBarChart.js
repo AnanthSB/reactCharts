@@ -217,12 +217,12 @@ export function PayoutBarChart({ graphData }) {
   };
   return (
     <>
-      <div className={`${styles.payoutChartContainer}`}>
+      <div className={`w-full ${styles.payoutChartContainer}`}>
         <Chart
           options={options}
           series={series}
           type="bar"
-            width={600}
+          width={'78%'}
           height={260}
           // plotOptions={plotOptions}
           className={`${styles.payoutChart}`}

@@ -4,8 +4,7 @@ import styles from './barChart.module.scss';
 import Chart from 'react-apexcharts';
 import PropTypes from 'prop-types';
 import { BarChart, Bar, Cell, XAxis, YAxis, Tooltip } from 'recharts';
-import toCurrencyAmount from '../Helpers/toCurrencyAmount';
-
+import toCurrencyAmount from '../../Helpers/toCurrencyAmount';
 export default function BarChart1(){
 
   const options = {
@@ -35,23 +34,23 @@ export default function BarChart1(){
     }
   }
   return (
-    <div>
-      <div className='bg-white'>
-      <ReactECharts
-      style={{width:'700px',height:'400px'}}
-      option={options}
-      // notMerge={true}
-      // lazyUpdate={true}
-      // theme={"theme_name"}
-      // onChartReady={this.onChartReadyCallback}
-      // onEvents={EventsDict}
-      // opts={}
-       />
+      <div className='w-full bg-white'>
+        <ReactECharts
+        // style={{width:'700px',height:'400px'}}
+        style={{width:'100%',height:'400px'}}
+        option={options}
+        // notMerge={true}
+        // lazyUpdate={true}
+        // theme={"theme_name"}
+        // onChartReady={this.onChartReadyCallback}
+        // onEvents={EventsDict}
+        // opts={}
+         />
       </div>
-    </div>
   );
 }
 
+// custom tooltip bar graph
 export function BarGraphComponent({ barGraphData }) {
   const CustomTooltip = (data) => {
     const { active, payload, label } = data;

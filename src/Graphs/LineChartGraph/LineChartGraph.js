@@ -8,17 +8,19 @@ function LineChartGraph() {
       type: "category",
       data: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
       // removes grid-lines in x-axis
-      splitLine:{show:false}
+      splitLine:{show:false},
+      axisLine:{show:true}
     },
     yAxis: {
       type: "value",
-      data: [300, 400, 500, 600, 700],
+      // data: [300, 400, 500, 600, 700],
       // removes grid-lines in y-axis
-      splitLine:{show:false},
+      splitLine:{show:!false},
+      axisLine:{show:true}
     },
     series: [
       {
-        data: [10, 20, 10, 20, 10],
+        data: [500, 200, 600, 400, 550],
         type: 'line',
         smooth: true
       }
@@ -29,10 +31,11 @@ function LineChartGraph() {
     }
   }
   return (
-    <div>
-      <div className='bg-white'>
+      <div className='w-full bg-white'>
       <ReactECharts
-      style={{width:'700px',height:'400px'}}
+      width={'100%'}
+      height={400}
+      // style={{height:'400px',width:'100%'}}
       option={options}
       notMerge={true}
       lazyUpdate={true}
@@ -42,7 +45,6 @@ function LineChartGraph() {
       // opts={}
        />
       </div>
-    </div>
   );
 }
 

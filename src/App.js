@@ -1,15 +1,16 @@
-import styles from './App.scss';
-import { ApexBarChart, BarGraphComponent } from './barChart/BarChart';
+import styles from './App.module.scss';
+import { ApexBarChart, BarGraphComponent } from './Graphs/barChart/BarChart';
+import BarChart1 from './Graphs/barChart/BarChart';
 import LineChartGraph from './Graphs/LineChartGraph/LineChartGraph';
 import DonutChart from './Graphs/DonutChart/DonutChart';
 import donutData from './Graphs/DonutChart/donutData.json';
-import payoutsData from "./Graphs/PayoutBarChart/data.json";
-// import areaChartData from "./Graphs/AreaChart/data.json"
-import BarChart1 from './barChart/BarChart';
 import { useEffect, useState } from 'react';
 import moment from 'moment';
 import { PayoutBarChart } from './Graphs/PayoutBarChart/PayoutBarChart';
 // import AreaChart from './Graphs/AreaChart/AreaChart';
+import {AreaChart2} from "./Graphs/AreaChart/AreaChart2";
+import areaChartData from "./Graphs/AreaChart/data.json";
+import data from "./Graphs/PayoutBarChart/payoutsData.json"
 
 function App() {
   const [categoryWiseSum, setCategoryWiseSum] = useState([]);
@@ -119,21 +120,25 @@ useEffect(()=>{
 
   // payoutsData
   useEffect(()=>{
-    const array = payoutsData?.data?.slice(1); //slice method used for getting items of an array from index to To index. Here we are filtering last 7days payouts.
+    const array = data?.data?.slice(1); //slice method used for getting items of an array from index to To index. Here we are filtering last 7days payouts.
     setPayoutGraphData(
       array?.map((item) => {
         return {
           // category: `Day${index + 1}`
-          category: moment(item?.createdAt?.split(" ")[0]).format('D MMM YYYY'),
+          category: moment(item?.createdAt?.split(" ")[0]).format('D MMM, YYYY'),
           totalAmount: +item?.totalAmount
         };
       })
     );
   },[])
   return (
-    <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',justifyItems:'center'}} className={`${styles.appContainer} gap-[2rem] pt-[8px]`}>
-              <DonutChart
-              label={'Total'} //That goes center of the DonutChart
+    <>
+    <h1 className='text-[22px] underline flex items-center justify-center w-full my-[10px] py-[10px]'>Collection of Graphs woked on...</h1>
+    <div className={`${styles.appContainer} gap-[2rem] pt-[8px]`}>
+        {/* Donut Chart */}
+        <div className='flex items-center justify-center w-full'>
+        <DonutChart
+                label={'Total'} //That goes center of the DonutChart
               titleLabel={'Donut ApexChart'}
               donutData={categorizedArray}
               walletsByTotal={categoryWiseSum}
@@ -150,45 +155,53 @@ useEffect(()=>{
               showNegative={1} //pass index of the series, which you want to show in -ve
               colors={categorizedArray.map((item)=>{
                 return  `#${Math.random().toString(16).slice(2,8).padEnd(6,0)}`;
-              })}
-              // trying for to show in red color based on a condition where subCategoryType === "loans"
-              // colors={categorizedArray.map((item)=>{
-              //   return  item?.subCategoryType === "Loans" ? `#${Math.random().toString(16).slice(2,8).padEnd(6,0)}` : "#FF0000";
-              // })}
-        />
-        <div className='flex flex-col items-center justify-center w-full'>
+                })}
+                // trying for to show in red color based on a condition where subCategoryType === "loans"
+                // colors={categorizedArray.map((item)=>{
+                //   return  item?.subCategoryType === "Loans" ? `#${Math.random().toString(16).slice(2,8).padEnd(6,0)}` : "#FF0000";
+                // })}
+          />
+        </div>
+        
+        {/* CustomtoolTipBar Chart */}
+        <div className='flex flex-col items-center justify-center w-ful mt-[50px]l'>
           <BarGraphComponent barGraphData={barGraphData} />
           <p className='flex justify-center p-2 border-b'>Chart Type : Bar Rechart</p>
         </div>
         
-        <div>
+        {/* border-radial Bar Chart */}
+        <div className='flex flex-col items-center justify-center w-full mt-[50px]'>
           <PayoutBarChart graphData={payoutGraphData} />
-          <p className='flex justify-center p-2 border-b mt-[50px]'>Chart Type : Bar Rechart</p>
+          <p className='flex justify-center p-2 border-b mt-[50px]'>Chart Type : Radial Bar Rechart</p>
         </div>
 
         {/* AreaChart */}
-        <div>
-          {/* <AreaChart
+        <div className='flex flex-col items-center justify-center w-full mt-[50px]'>
+          <AreaChart2
             areaChartData={areaChartData}
-          /> */}
-          <p className='flex justify-center p-2 border-b mt-[50px]'>Chart Type : Bar Rechart</p>
+          />
+          <p className='flex justify-center p-2 border-b mt-[50px]'>Chart Type : Area Rechart</p>
         </div>
-
-        <div className='flex flex-col items-center justify-center w-full'>
-          <BarChart1 />
+        
+        {/* simple react bar chart */}
+        <div className='flex flex-col items-center justify-center w-full mt-[50px]'>
+          <BarChart1 className="w-full"/>
           <p className='flex justify-center p-2 border-b'>Chart Type : Bar Rechart</p>
         </div>
         
-        <div className='flex flex-col items-center justify-center w-full'>
+        {/* apex Bar Chart */}
+        {/* <div className='flex flex-col items-center justify-center w-full mt-[50px]'>
           <ApexBarChart />
           <p>Chart Type : Bar ApexChart</p>
-        </div>
+        </div> */}
         
-        <div >
+        {/* Line chart */}
+        <div className='flex flex-col items-center justify-center w-full mt-[50px]'>
           <LineChartGraph />
           <div className='flex justify-center p-2 border-b'><h2>Chart Type : line</h2></div>
         </div>
     </div>
+    </>
   );
 }
 

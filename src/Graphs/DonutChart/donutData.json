@@ -3,61 +3,49 @@
     {
       "id": 1,
       "categoryType": "January",
-      "subCategoryType": "Profit",
+      "subCategoryType": "Received",
       "AvailableBalance": 100.0
     },
     {
       "id": 3,
       "categoryType": "February",
-      "subCategoryType": "Loans",
+      "subCategoryType": "Paid",
       "AvailableBalance": 210.0
     },
     {
       "id": 12,
       "categoryType": "November",
-      "subCategoryType": "Profit",
+      "subCategoryType": "Received",
       "AvailableBalance": 200.01
     },
     {
       "id": 4,
       "categoryType": "March",
-      "subCategoryType": "Profit",
-      "AvailableBalance": 50.0
+      "subCategoryType": "Received",
+      "AvailableBalance": 80.0
     },
     {
       "id": 5,
       "categoryType": "April",
-      "subCategoryType": "Profit",
+      "subCategoryType": "Received",
       "AvailableBalance": 120.0
-    },
-    {
-      "id": 6,
-      "categoryType": "May",
-      "subCategoryType": "Profit",
-      "AvailableBalance": 75.07
     },
     {
       "id": 7,
       "categoryType": "Jun",
-      "subCategoryType": "Profit",
+      "subCategoryType": "Received",
       "AvailableBalance": 78.0
-    },
-    {
-      "id": 12,
-      "categoryType": "November",
-      "subCategoryType": "Profit",
-      "AvailableBalance": 100.34
     },
     {
       "id": 8,
       "categoryType": "July",
-      "subCategoryType": "Profit",
+      "subCategoryType": "Received",
       "AvailableBalance": 110.0
     },
     {
       "id": 12,
       "categoryType": "November",
-      "subCategoryType": "Profit",
+      "subCategoryType": "Received",
       "AvailableBalance": 175.34
     },
     {
@@ -69,14 +57,14 @@
     {
       "id": 1,
       "categoryType": "January",
-      "subCategoryType": "Profit",
+      "subCategoryType": "Received",
       "AvailableBalance": 100.0
     },
     {
       "id": 6,
       "categoryType": "May",
       "subCategoryType": "loss",
-      "AvailableBalance": 50.17
+      "AvailableBalance": 70.17
     }
   ]
 }
